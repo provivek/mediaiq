@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Media IQ</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+<!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+ <link rel="stylesheet" href="css/app.css" />
+</head>
+<body ng-app="mediaiq-app"  ng-cloak>
+
+	<div style="margin: 10px 5px 5px 50px; padding: 10px;">
+		<div class="form-group">
+		  <label for="movies" style="margin-right: 4px;">Search for Movies</label>
+			<input id="typeahead-input" class="search-box" type="text" data-provide="typeahead"/>
+			
+		</div>
+	</div>
+	
+	<div class="container" ng-controller="MoviesCtrl as Ctrl" id="MainTabContainer">
+	<div class="row">
+        <div class="col-lg-12 col-md-3 col-sm-8 col-xs-9 bhoechie-tab-container">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 bhoechie-tab-menu">
+              <div class="list-group">
+                <a href="#" class="list-group-item active text-center">
+                  <h4 >All</h4><br/>
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <h4>Crime</h4><br/>
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <h4>Drama</h4><br/>
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <h4>Mystery</h4><br/>
+                </a>
+                 <a href="#" class="list-group-item text-center">
+                  <h4>Sc-Fi</h4><br/>
+                </a>
+                 <a href="#" class="list-group-item text-center">
+                  <h4>Adventure</h4><br/>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 bhoechie-tab">
+                <!-- flight section -->
+                <div class="bhoechie-tab-content active">
+				    <!-- <div ng-repeat="item in allMoviesRec track by $index">{{$index}} {{item.Title}}
+				    	<div>{{item.Title}}</div>
+				    </div> -->
+				    
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" ng-repeat="item in allMoviesRec track by $index" layout="column" ng-click="showAdvanced()">
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{item.Title}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        
+        <img ng-src="{{item.Poster}}" class="md-card-image" alt="Movie Poster">
+        <md-card-content>
+          <p>
+            <b>Year: </b> {{item.Year}}
+          </p>
+          <p>
+            <b>Genre: </b> {{item.Genre}}
+          </p>
+          <p>
+            <b>Director: </b> {{item.Director}}
+          </p>
+          <p>
+            <b>Actors: </b> {{item.Actors}}
+          </p>
+          <p>
+            <b>Plot: </b> {{item.Plot}}
+          </p>
+         
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </md-content>
+				    
+				    
+				    
+				    
+				    
+                    <center>
+                      <h1 class="glyphicon glyphicon-film" style="font-size:14em;color:#55518a"></h1>
+                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                      <h3 style="margin-top: 0;color:#55518a">All Movies</h3>
+                    </center>
+                    
+                </div>
+                <!-- train section -->
+                <div class="bhoechie-tab-content">
+                    <center>
+                      <h1 class="glyphicon glyphicon-film" style="font-size:12em;color:#55518a"></h1>
+                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                      <h3 style="margin-top: 0;color:#55518a">Crime</h3>
+                    </center>
+                </div>
+    
+                <!-- hotel search -->
+                <div class="bhoechie-tab-content">
+                    <center>
+                      <h1 class="glyphicon glyphicon-film" style="font-size:12em;color:#55518a"></h1>
+                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                      <h3 style="margin-top: 0;color:#55518a">Drama</h3>
+                    </center>
+                </div>
+                <div class="bhoechie-tab-content">
+                    <center>
+                      <h1 class="glyphicon glyphicon-film" style="font-size:12em;color:#55518a"></h1>
+                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                      <h3 style="margin-top: 0;color:#55518a">Mystery</h3>
+                    </center>
+                </div>
+                <div class="bhoechie-tab-content">
+                	<center>
+                      <h1 class="glyphicon glyphicon-film" style="font-size:12em;color:#55518a"></h1>
+                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                      <h3 style="margin-top: 0;color:#55518a">Sc-Fi</h3>
+                    </center>
+                </div>
+                <div class="bhoechie-tab-content">
+                    <center>
+                      <h1 class="glyphicon glyphicon-film" style="font-size:12em;color:#55518a"></h1>
+                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                      <h3 style="margin-top: 0;color:#55518a">Adventure</h3>
+                    </center>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+	
+	<!-- Angular Material Library -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+	
+	<script src="lib/lawnchair-0.6.1.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="lib/bootstrap3-typeahead.min.js"></script>
+	<script> 
+	$(document).ready(function() {
+		   
+		var lawnchair = Lawnchair({name: 'movies', record: 'movie', adapter: 'dom'}, function(){});
+		
+		   //******************************************************************************************************//
+	    $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+	        e.preventDefault();
+	        $(this).siblings('a.active').removeClass("active");
+	        $(this).addClass("active");
+	        var index = $(this).index();
+	        $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+	        $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+	    });
+	    
+	    $('#typeahead-input').typeahead({
+	    	source: function (query, process) {
+	            return $.get('movies/search?searchMovieString=' + query, function (data) {
+	            	
+	            	var imdbIdArr = new Array();
+	            	var obj = JSON.parse(data);
+	            	 var movieArr = new Array();
+	            	 
+	            	 if(obj.Search && obj.Search.length) {
+	            		 for (var i =0 ; i<obj.Search.length; i++) {
+            				
+            				imdbIdArr.push(obj.Search[i].imdbID);
+            				
+            				/* lawnchair.save({key : obj.Search[i].imdbID, value: obj.Search[i]}, function(obj){
+        				        console.log(obj)
+        				    }); */
+	 						var group;
+	 	                    group = {
+	 	                        id : obj.Search[i].imdbID,
+	 	                        name : obj.Search[i].Title,
+	 	                        toString: function () {
+	 	                            return JSON.stringify(this);
+	 	                        },
+	 	                        toLowerCase: function () {
+	 	                            return this.name.toLowerCase();
+	 	                        },
+	 	                        indexOf: function (string) {
+	 	                            return String.prototype.indexOf.apply(this.name, arguments);
+	 	                        },
+	 	                        replace: function (string) {
+	 	                            return String.prototype.replace.apply(this.name, arguments);
+	 	                        }
+	 						
+	 						};
+	 	                    movieArr.push(group);
+	 	            	}
+	            	 }
+	            	 
+	            	 // AJAX Request to update
+	            	 
+	            	 
+	            	// Using the core $.ajax() method
+	            	 $.ajax({
+	            	  
+	            	     // The URL for the request
+	            	     url: "movies/searchById",
+	            	  
+	            	     // The data to send (will be converted to a query string)
+	            	     data: {
+	            	         id: imdbIdArr.toString()
+	            	     },
+	            	  
+	            	     // Whether this is a POST or GET request
+	            	     type: "GET",
+	            	  
+	            	     // The type of data we expect back
+	            	     dataType : "json",
+	            	 })
+	            	   // Code to run if the request succeeds (is done);
+	            	   // The response is passed to the function
+	            	   .done(function( json ) {
+	            	      console.log('Success');
+	            	      console.log(json);
+	            	      if(json && json.length) {
+	 	            		 for (var i =0 ; i<json.length; i++) {
+	 	            			lawnchair.save({key : json[i].imdbID, value: json[i]}, function(obj){
+	 	      				        console.log(obj);
+	 	      				    }); 
+	 	            		 }
+	 	            	  }
+	            	      
+	            	   })
+	            	   // Code to run if the request fails; the raw request and
+	            	   // status codes are passed to the function
+	            	   .fail(function( xhr, status, errorThrown ) {
+	            	     alert( "Sorry, there was a problem!" );
+	            	     console.log( "Error: " + errorThrown );
+	            	     console.log( "Status: " + status );
+	            	     console.dir( xhr );
+	            	   });
+	            	 
+	            	 
+	            return process(movieArr);
+	        });
+		    }
+		});
+	   
+	    
+	    updateMoviesinTabs();
+	});
+	
+	
+	function updateMoviesinTabs () {
+		var scope = angular.element(
+	    	    document.
+	    	    getElementById("MainTabContainer")).
+	    	    scope();
+	   	scope.$apply(function () {
+	    	        scope.allMoviesData();
+	    });
+	}
+	
+	</script>
+	<!-- Application JS -->
+	<script src="js/app.js"></script>
+	<script src="js/controller/moviesCtrl.js"></script>
+</body>
+</html>
